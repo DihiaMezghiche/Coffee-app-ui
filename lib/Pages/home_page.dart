@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:coffeeappui/Util/coffee_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -51,7 +52,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        SizedBox(height: 25),
+        SizedBox(height: 10),
         //Search Bar
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -68,8 +69,23 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        //Horizontal listview of coffee tiles
+        SizedBox(height: 10),
 
+        //Horizontal listview of coffee types
+        Container(
+          height: 37,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: [
+              Text('Cappucino'),
+              Text('Latte'),
+              Text('Coffee')  
+            ],
+          ) ,
+        ),
+       
+        //Horizontal listview of coffee tiles
+        CoffeeTile()
       ]),
     );
   }
