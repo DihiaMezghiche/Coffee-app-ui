@@ -3,15 +3,22 @@
 import 'package:flutter/material.dart';
 
 class CoffeeTile extends StatelessWidget {
-  const CoffeeTile({ Key? key }) : super(key: key);
+  final String coffeeImagePath;
+  final String coffeeName;
+  final String coffeePrice;
+
+  CoffeeTile(
+    {
+      required this.coffeeImagePath,
+      required this.coffeeName,
+      required this.coffeePrice
+
+    }
+  )  ;
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: [
-              Padding(
+    return Padding(
                 padding: const EdgeInsets.only(left: 25.0),
                 child: Container(
                   padding: const EdgeInsets.all(12),
@@ -28,7 +35,7 @@ class CoffeeTile extends StatelessWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12),
                       child:  Image.asset(
-                        'lib/images/latte.jpg',
+                        coffeeImagePath,
                          height: 150,
                          width: 200,
                          fit: BoxFit.fitWidth,
@@ -43,7 +50,7 @@ class CoffeeTile extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                             Text(
-                          "Latte",
+                          coffeeName,
                           style: TextStyle(fontSize: 20),
                         ),
                         SizedBox(height: 4),
@@ -62,7 +69,7 @@ class CoffeeTile extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('\$4.00'),
+                          Text('\$'+ coffeePrice),
                           Container(
                             padding: EdgeInsets.all(4),
                             decoration: BoxDecoration(
@@ -74,9 +81,6 @@ class CoffeeTile extends StatelessWidget {
                     )
                   ]),
                 ),
-              ),
-            ],
-          )
-        );
-  }
+              );
+              }
 }
